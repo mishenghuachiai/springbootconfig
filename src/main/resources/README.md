@@ -1,6 +1,5 @@
-###
-1.CGlib代理 JDK代理，集成mybatisplus,集成最mapstruct拷贝
 
-2.前置拦截器 filter interceptor aop 后置 拦截器mybaitsInterceptor实现
-
-3.使用AbstractRoutingDataSource 实现动态数据源切换，mybatis拦截器
+###  本次提交内容如下
+1. AbstractRoutingDataSource实现简单读写分离  相关类DataSourceContextHolder  DynamicDataSource  DataSourceConfig 外加一个配置文件
+2. mybatis拦截器使用 相关类MySimpleInterceptor
+3. TypeHandler类的使用 将性别0 转化为枚举类型 Gender

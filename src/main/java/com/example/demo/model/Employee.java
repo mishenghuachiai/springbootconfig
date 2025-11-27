@@ -2,7 +2,9 @@ package com.example.demo.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.example.demo.constants.Gender;
 import lombok.Data;
+
 
 @Data
 public class Employee {
@@ -10,6 +12,9 @@ public class Employee {
     private Integer id;
     private String lastName;
     private String email;
-    private Integer gender;
+    private Gender gender;
     private Integer age;
+    private Boolean deleted;
+
+
 }
