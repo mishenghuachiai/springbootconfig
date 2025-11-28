@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.common.DataSourceContextHolder;
 import com.example.demo.mapper.EmployeeMapper;
 import com.example.demo.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +15,10 @@ public class HomeController {
     EmployeeMapper employeeMapper;
     @RequestMapping("/home")
     public String home(){
-        DataSourceContextHolder.setDataSource("ds1");
+
         List<Employee> employees = employeeMapper.selectList(null);
-        DataSourceContextHolder.clear();
-        System.out.println(employees);
+        employees.forEach(item-> System.out.println(item.getLastName()+ " " + item.getAge() +" " + item.getGender()));
         return "hello111";
-    }
-    @RequestMapping("/home1")
-    public String home1(){
-        DataSourceContextHolder.setDataSource("ds2");
-        List<Employee> employees = employeeMapper.selectList(null);
-        DataSourceContextHolder.clear();
-        System.out.println(employees);
-        return "hello222";
     }
 
 }
