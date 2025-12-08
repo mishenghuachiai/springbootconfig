@@ -1,0 +1,19 @@
+package $packageName;
+
+import lombok.Data;
+import java.io.Serializable;
+#foreach($import in $imports)
+import ${import};
+#end
+
+/**
+ * 自动生成实体类：$tableName
+ */
+@Data
+public class $className implements Serializable {
+    private static final long serialVersionUID = 1L;
+    #foreach ($field in $fields)
+        private ${field.javaType} ${field.name};
+    #end
+
+}

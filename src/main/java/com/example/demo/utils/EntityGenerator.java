@@ -2,6 +2,7 @@ package com.example.demo.utils;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
+import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 
 public class EntityGenerator {
 
@@ -11,7 +12,12 @@ public class EntityGenerator {
         String username = "root";
         String password = "123456";
 
+
         FastAutoGenerator.create(url, username, password)
+
+                .dataSourceConfig(builder ->
+                        builder.typeConvert(MyCustomMySqlTypeConvert.INSTANCE)
+                )
                 // 全局配置
                 .globalConfig(builder -> {
                     builder.author("Morris") // 作者
@@ -22,8 +28,7 @@ public class EntityGenerator {
                 .packageConfig(builder -> {
                     builder.parent("com.example")    // 父包
                             .entity("domain.entity"); // 生成实体类的包路径
-                })
-
+                }).templateEngine(new VelocityTemplateEngine())
                 // 策略配置：只生成实体类
                 .strategyConfig(builder -> {
                     builder.addInclude("employee") // 你要生成的表列表（多个表可写多个）
