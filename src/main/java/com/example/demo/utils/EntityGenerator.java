@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
 
+/**
+ * 11
+ */
 public class EntityGenerator {
 
     public static void main(String[] args) {
