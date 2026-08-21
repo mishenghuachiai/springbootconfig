@@ -64,5 +64,42 @@
 			<version>1.18.38</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.example</groupId>
+				<artifactId>springboot-pack-plugin</artifactId>
+				<version>1.0.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>package</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>3.4.7</version>
+				<configuration>
+					<mainClass>com.example.demo.DemoApplication</mainClass>
 
+					<!-- 直接设置最终文件名，repackage后覆盖原jar -->
+					<finalName>${project.artifactId}-${project.version}-boot</finalName>
+
+					<layers>
+						<enabled>true</enabled>
+					</layers>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
