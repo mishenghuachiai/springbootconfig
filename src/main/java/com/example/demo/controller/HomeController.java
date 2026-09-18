@@ -18,7 +18,7 @@ public class HomeController {
 
         List<Employee> employees = employeeMapper.selectList(null);
         employees.forEach(item-> System.out.println(item.getLastName()+ " " + item.getAge() +" " + item.getGender()));
-        return "hello1";
+        return "hello";
     }
 
 }
